@@ -132,7 +132,7 @@ export function AlertDialogProvider({ children }: { children: React.ReactNode })
                     return;
                 }}
             >
-                <AlertDialogContent className="font-inter max:w-1/5 w-2/5 " asChild>
+                <AlertDialogContent className="font-inter max:w-4/5 w-4/5 rounded-xl" asChild>
                     <form
                         onSubmit={(event) => {
                             event.preventDefault();

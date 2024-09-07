@@ -24,7 +24,7 @@ const ExamPage: React.FC = () => {
     const selectedAnswer = answeredQuestions[currentQuestion.uid];
 
     return (
-        <div className="flex  bg-[#f7f7f7] h-screen">
+        <div className="flex  bg-[#f7f7f7] min-h-screen h-full">
             <div className='flex md:flex-row flex-col bg-[#ffff] container my-5 mx-auto rounded-lg ' >
                 <div className="md:w-1/4 w-full  p-4">
                     <AptitudeLevelSelector
@@ -36,7 +36,7 @@ const ExamPage: React.FC = () => {
                     />
                 </div>
 
-                <div className="max-h-screen hidden md:block h-full border-r-[0.1px] border-slate-300/40"></div>
+                {/* <div className="max-h-screen hidden md:block h-full border-r-[0.1px] border-slate-300/40"></div> */}
 
 
                 <div className="md:w-3/4 w-full p-6 flex flex-col justify-between  h-full">

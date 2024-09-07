@@ -53,12 +53,12 @@ function Instructions() {
         <main className="h-full">
             <div className="container flex flex-col justify-center items-center gap-5 mx-auto py-10 font-inter">
                 <div className="flex justify-center mx-auto">
-                    <h1 className="font-source text-center text-3xl font-semibold">Instructions to attend the exam</h1>
+                    <h1 className="font-source text-center md:text-3xl text-xl font-semibold">Instructions to attend the exam</h1>
                 </div>
                 <Card className="bg-[#F9F9F9]  md:max-w-xl mx-w-11/12 mx-auto p-6 rounded-lg shadow-none border-none">
 
                     <div className="mb-6">
-                        <h2 className="text-lg font-bold mb-4">General Guidelines</h2>
+                        <h2 className="md:text-lg font-bold mb-4">General Guidelines</h2>
                         <List items={guidelines} />
                     </div>
 
