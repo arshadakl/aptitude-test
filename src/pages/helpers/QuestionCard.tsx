@@ -1,105 +1,16 @@
-// import { Button } from '@/components/ui/button';
-// import React from 'react';
-
-
-
-
-// interface QuestionCardProps {
-//   question: string;
-//   options: string[];
-//   selectedAnswer?: string;
-//   onAnswer: (answer: string) => void;
-// }
-
-// const QuestionCard: React.FC<QuestionCardProps> = ({
-//   question,
-//   options,
-//   selectedAnswer,
-//   onAnswer,
-// }) => {
-//   return (
-//     <div>
-//       <h3 className="text-2xl font-semibold mb-4 font-source">{question}</h3>
-//       <div className="flex flex-col gap-2 font-inter">
-//         {options.map((option, index) => (
-//           <Button
-//             key={index}
-//             onClick={() => onAnswer(option)}
-//             variant={selectedAnswer === option ? 'default' : 'ghost'}
-//             className={`text-left w-full justify-start p-4 hover:bg-zinc-100
-//               ${selectedAnswer === option ? 'bg-iiiPrimary hover:bg-iiiPrimary text-white' : ''}`}
-//           >
-//             {option}
-//           </Button>
-//         ))}
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default QuestionCard;
-
-
-
-// import { Button } from '@/components/ui/button';
-// import React from 'react';
-
-// interface QuestionCardProps {
-//   question: string;
-//   options: string[];
-//   selectedAnswer?: string;
-//   onAnswer: (answer: string) => void;
-//   questionNumber: number; // Add questionNumber prop
-//   section: string; // Add section (question type) prop
-// }
-
-// const QuestionCard: React.FC<QuestionCardProps> = ({
-//   question,
-//   options,
-//   selectedAnswer,
-//   onAnswer,
-//   questionNumber,
-//   section, // Destructure section and questionNumber props
-// }) => {
-//   return (
-//     <div>
-//       {/* Display question type (section) and question number */}
-//       <div className="mb-2 text-sm font-normal text-gray-600 font-inter">
-//         {section} Level - <span className='text-iiiPrimary'>Q{questionNumber}</span>
-//       </div>
-
-//       <h3 className="text-2xl font-semibold mb-4 font-source">{question}</h3>
-
-//       <div className="flex flex-col gap-2 font-inter">
-//         {options.map((option, index) => (
-//           <Button
-//             key={index}
-//             onClick={() => onAnswer(option)}
-//             variant={selectedAnswer === option ? 'default' : 'ghost'}
-//             className={`text-left w-full justify-start p-4 hover:bg-zinc-100
-//               ${selectedAnswer === option ? 'bg-iiiPrimary hover:bg-iiiPrimary text-white' : ''}`}
-//           >
-//             {option}
-//           </Button>
-//         ))}
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default QuestionCard;
-
-
+import React from 'react';
 import { Button } from "@/components/ui/button";
 
 interface QuestionCardProps {
   question: string;
-  options: string[];
-  selectedAnswer?: string; // selectedAnswer should be a string or undefined
+  options: { option: string; id: string }[];
+  selectedAnswer?: string | null;
   onAnswer: (answer: string) => void;
   questionNumber: number;
-  section: string;
+  section: string | undefined;
+  formattedTime?: string
 }
+
 
 const QuestionCard: React.FC<QuestionCardProps> = ({
   question,
@@ -108,28 +19,36 @@ const QuestionCard: React.FC<QuestionCardProps> = ({
   onAnswer,
   questionNumber,
   section,
+  formattedTime
 }) => {
   return (
-    <div className="flex flex-col gap-5">
-      <div className="mb-2 text-sm text-gray-600 font-inter">
-        {section} - <span className="text-iiiPrimary">Q{questionNumber}</span>
+    <div className="flex flex-col md:gap-5 gap-2  max:h-[80vh] ">
+
+      <div className='hidden md:flex md:justify-between gap-2'>
+        <div className="mb-2 text-sm text-gray-600 font-inter flex items-center ">
+          {section} - <span className="text-iiiPrimary">Q{questionNumber}</span>
+        </div>
+        <div className="mb-2 text-sm text-gray-500 font-inter bg-zinc-100 p-1 min:w-24 w-24 flex justify-center font-">
+          00:{formattedTime}
+        </div>
       </div>
       <h3 className="text-2xl font-semibold mb-4 font-source">{question}</h3>
-      <div className=" w-full border-b-[0.1px]  border-slate-300/60"></div>
-
+      <div className="w-full border-b-[0.1px] border-slate-300/60"></div>
       <div className="flex flex-col gap-2 font-inter">
-        {options.map((option, index) => (
+        {options.map((option) => (
           <Button
-            key={index}
-            onClick={() => onAnswer(option)}
-            variant={selectedAnswer === option ? 'default' : 'ghost'}
-            className={`text-left w-full justify-start p-4 hover:bg-zinc-100
-            ${selectedAnswer === option ? 'bg-iiiPrimary hover:bg-iiiPrimary text-white' : ''}`}
+            key={option.id}
+            onClick={() => onAnswer(option.id)}
+            variant={selectedAnswer === option.id ? 'default' : 'ghost'}
+            className={`text-left h-full w-full block justify-start p-3 hover:bg-zinc-100 whitespace-normal break-words
+      ${selectedAnswer === option.id ? 'bg-iiiPrimary hover:bg-iiiPrimary text-white' : ''}`}
           >
-            {option}
+            {option.option}
           </Button>
         ))}
       </div>
+
+
     </div>
   );
 };
