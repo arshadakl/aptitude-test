@@ -32,7 +32,7 @@ function Home() {
                     </div>
                 </section>
                 <section>
-                    <div className="container mx-auto flex justify-center">
+                    <div className="container mx-auto flex justify-center ">
                         <Card className="max-h-96 lg:w-3/6 w-11/12 bg-red-500">
                             <img className="md:object-none object-fill h-full w-full  rounded-xl" src="/images/bg-hero.jpg" alt="" />
                         </Card>
@@ -40,7 +40,7 @@ function Home() {
                 </section>
                 <section className="md:py-0 py-12">
                     <div className="flex flex-col items-center gap-3 justify-center lg:h-80 h-full ">
-                        <h1 className="font-source font-semibold text-iiiblack lg:w-2/4 w-11/12 text-center md:text-4xl text-2xl">
+                        <h1 className="font-source font-semibold text-iiiblack lg:w-3/4 xl:w-2/4 w-11/12 text-center md:text-4xl text-2xl">
                             Our Specialised R&D Team has created <br className="hidden md:block" /> an AI to Find out which course is best for students based on bunch of Questions
                         </h1>
                         <p className="font-inter text-center lg:w-2/5 w-11/12 md:text-lg text-md leading-6 text-iiiblack">Take the guesswork out of choosing the right career path <br className="hidden md:block" />
@@ -53,7 +53,7 @@ function Home() {
                             <h1 className="text-3xl text-center font-semibold text-iiiblack">How our Specialised Exam can help you?</h1>
                             <Wavunderline />
                         </div>
-                        <div className=" bg-[#F9F9F9] rounded-2xl lg:w-5/12 w-11/12 md:p-14 p-8 ">
+                        <div className=" bg-[#F9F9F9] rounded-2xl lg:w-7/12 w-11/12 md:p-14 p-8 ">
                             <div className="space-y-10">
                                 {/* Mapping through the guidance data */}
                                 {guidanceData.map((item, index) => (

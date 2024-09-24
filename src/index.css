@@ -82,6 +82,16 @@
 }
 
 
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+      display: none;
+  }
+  .no-scrollbar {
+      -ms-overflow-style: none;  
+      scrollbar-width: none;  
+}
+}
+
 [data-state='open'] > .chevron {
   transform: rotate(180deg);
 }
